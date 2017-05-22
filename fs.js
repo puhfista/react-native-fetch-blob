@@ -29,7 +29,8 @@ const dirs = {
     DownloadDir : RNFetchBlob.DownloadDir,
     DCIMDir : RNFetchBlob.DCIMDir,
     SDCardDir : RNFetchBlob.SDCardDir,
-    MainBundleDir : RNFetchBlob.MainBundleDir
+    MainBundleDir : RNFetchBlob.MainBundleDir,
+    LibraryDir : RNFetchBlob.LibraryDir
 }
 
 /**
@@ -135,6 +136,15 @@ function mkdir(path:string):Promise {
     })
   })
 
+}
+
+/**
+ * Returns the path for the app group.
+ * @param  {string} groupName Name of app group
+ * @return {Promise}
+ */
+function pathForAppGroup(groupName:string):Promise {
+  return RNFetchBlob.pathForAppGroup(groupName);
 }
 
 /**
@@ -366,6 +376,7 @@ export default {
   writeStream,
   writeFile,
   appendFile,
+  pathForAppGroup,
   readFile,
   exists,
   createFile,
